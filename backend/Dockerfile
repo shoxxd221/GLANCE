@@ -5,7 +5,8 @@ COPY src /src
 WORKDIR /src
 
 EXPOSE 8000
-RUN pip install -r requirements.txt
+
+RUN pip install -r /temp/requirements.txt
 
 RUN adduser --disabled-password django-user
 

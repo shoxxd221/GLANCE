@@ -1,5 +1,6 @@
-backend/.idea
-backend/venv
-backend/src/config/db.sqlite3
-backend/.env
 .idea
+venv
+db.sqlite3
+.env
+.idea
+__pycache__
