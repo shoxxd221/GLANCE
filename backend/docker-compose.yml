@@ -14,7 +14,7 @@ services:
       - DB_HOST=${DB_HOST}
     volumes:
       - ./src:/src
-    command: python manage.py runserver 0.0.0.0:8000
+    command: python manage.py runserver 0.0.0.0:8000 --settings=config.settings.local
     depends_on:
       - database
 
@@ -25,6 +25,6 @@ services:
     ports:
       - 5432:5432
     environment:
-      - POSTGRES_DB=glance
-      - POSTGRES_USER=glance-user
-      - POSTGRES_PASSWORD=glance
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
