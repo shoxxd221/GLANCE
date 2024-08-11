@@ -23,6 +23,7 @@ THIRD_PARTY_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'djoser',
+    'drf_spectacular',
 ]
 
 LOCAL_APPS = [
@@ -108,18 +109,30 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'users.User'
 
 REST_FRAMEWORK = {
-    "DEFAULT_PERMISSION_CLASSES": [
-        "rest_framework.permissions.IsAuthenticatedOrReadOnly",
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
     ],
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.TokenAuthentication',
     ],
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
 
 DJOSER = {
-    "HIDE_USERS": False,
-    "PERMISSIONS": {
-        "user_list": ["rest_framework.permissions.IsAuthenticated"],
+    'HIDE_USERS': False,
+    'PERMISSIONS': {
+        'user_list': ['rest_framework.permissions.IsAuthenticated'],
     },
     'USER_CREATE_PASSWORD_RETYPE': True,
+}
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'GLANCE',
+    'DESCRIPTION': 'GLANCE - онлайн магазин электроники',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+    'SWAGGER_UI_SETTINGS': {
+        'filter': True,
+    },
+    'COMPONENT_SPLIT_REQUEST': True,
 }
