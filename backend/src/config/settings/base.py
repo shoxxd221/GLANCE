@@ -77,6 +77,12 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     },
     {
+        "NAME": "apps.users.validators.PasswordMaximumLengthValidator",
+        "OPTIONS": {
+            "message": "Пароль слишком длинный.",
+        },
+    },
+    {
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
     },
     {
