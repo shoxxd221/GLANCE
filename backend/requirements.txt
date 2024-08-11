@@ -4,3 +4,4 @@ python-dotenv
 psycopg2-binary==2.9.9
 Pillow
 djoser
+drf-spectacular
