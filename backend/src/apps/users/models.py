@@ -3,25 +3,14 @@ from django.db import models
 
 
 class User(AbstractUser):
-    """Класс пользователя"""
-    avatar = models.ImageField(
-        verbose_name='Avatar',
-        upload_to='images/',
-        blank=True,
-        null=True,
+    """Модель пользователя"""
+    full_name = models.CharField(
+        max_length=255,
+        verbose_name='ФИО'
     )
-    bio = models.TextField()
-    website = models.URLField(
-        verbose_name='Web-site'
-    )
-    facebook = models.URLField(
-        verbose_name='Facebook'
-    )
-    twitter = models.URLField(
-        verbose_name='Twitter'
-    )
-    instagram = models.URLField(
-        verbose_name='Instagram'
+    phone_number = models.CharField(
+        max_length=14,
+        verbose_name='Номер телефона'
     )
 
     def __str__(self):
