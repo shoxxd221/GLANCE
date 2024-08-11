@@ -3,6 +3,7 @@ from django.db import models
 
 
 class User(AbstractUser):
+    """Класс пользователя"""
     avatar = models.ImageField(
         verbose_name='Avatar',
         upload_to='images/',
