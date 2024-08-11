@@ -4,9 +4,9 @@ from django.core.exceptions import ValidationError
 class PasswordBaseInit:
     """Базовый класс для валидаторов пароля."""
 
-    message = "Введите правильное значение"
-    code = "password_incorrect"
-    help_message = "Проверьте правильность ввода пароля."
+    message = 'Введите правильное значение'
+    code = 'password_incorrect'
+    help_message = 'Проверьте правильность ввода пароля.'
 
     def __init__(self, message=None, code=None, help_message=None) -> None:
         if code is not None:
@@ -25,7 +25,7 @@ class PasswordMaximumLengthValidator(PasswordBaseInit):
     """Валидатор максимальной длинны пароля."""
 
     max_length = 20
-    help_message = f"Максимальная длинна: {max_length} символов."
+    help_message = f'Максимальная длинна: {max_length} символов.'
 
     def __init__(
         self, message=None, code=None, help_message=None, max_length=None
@@ -39,7 +39,7 @@ class PasswordMaximumLengthValidator(PasswordBaseInit):
 
         if len(password) > self.max_length:
             raise ValidationError(
-                f"{self.message} {self.help_message}",
+                f'{self.message} {self.help_message}',
                 code=self.code,
-                params={"password": self.help_message},
+                params={'password': self.help_message},
             )
