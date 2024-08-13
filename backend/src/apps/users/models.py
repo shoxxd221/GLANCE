@@ -6,7 +6,9 @@ class User(AbstractUser):
     """Модель пользователя"""
     full_name = models.CharField(
         max_length=255,
-        verbose_name='ФИО'
+        verbose_name='ФИО',
+        blank=True,
+        null=True
     )
     phone_number = models.CharField(
         max_length=14,

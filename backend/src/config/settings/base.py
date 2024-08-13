@@ -136,4 +136,5 @@ SPECTACULAR_SETTINGS = {
         'filter': True,
     },
     'COMPONENT_SPLIT_REQUEST': True,
+    'COMPONENT_SPLIT_RESPONSE': True,
 }
