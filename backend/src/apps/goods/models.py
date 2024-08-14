@@ -8,6 +8,9 @@ class Category(models.Model):
         verbose_name='Название категории'
     )
 
+    def __str__(self):
+        return self.name
+
 
 class Goods(models.Model):
     """Модель товара"""
@@ -26,3 +29,10 @@ class Goods(models.Model):
         on_delete=models.CASCADE,
         verbose_name='Категория товара'
     )
+    characteristics = models.JSONField(
+        null=True,
+        blank=True
+    )
+
+    def __str__(self):
+        return self.name
