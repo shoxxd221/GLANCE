@@ -33,6 +33,7 @@ class Goods(models.Model):
         null=True,
         blank=True
     )
+    quantity = models.PositiveSmallIntegerField()
 
     def __str__(self):
         return self.name

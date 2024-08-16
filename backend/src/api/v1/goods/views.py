@@ -11,6 +11,7 @@ class CategoryViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
     permission_classes = (IsSuperuserOrStaffOrReadOnly, )
+    http_method_names = ('get', 'post', 'patch', 'delete')
 
 
 class GoodsViewSet(viewsets.ModelViewSet):
@@ -18,3 +19,4 @@ class GoodsViewSet(viewsets.ModelViewSet):
     queryset = Goods.objects.all()
     serializer_class = GoodsSerializer
     permission_classes = (IsSuperuserOrStaffOrReadOnly, )
+    http_method_names = ('get', 'post', 'patch', 'delete')
