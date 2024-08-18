@@ -5,14 +5,18 @@ from rest_framework.serializers import ModelSerializer
 from apps.carts.models import Cart
 from apps.goods.models import Goods
 
+from api.v1.goods.serializers import GoodsSerializer
+
 
 class CartSerializer(ModelSerializer):
-    goods_id = serializers.IntegerField(write_only=True)
     """Серриализатор корзины"""
+    goods = GoodsSerializer(read_only=True)
+    goods_id = serializers.IntegerField(write_only=True)
+
     class Meta:
         model = Cart
         fields = ['id', 'goods', 'goods_id']
-        read_only_fields = ['goods']
+        read_only_fields = ['id', 'goods']
 
     def create(self, validated_data):
         """Создание корзины"""
