@@ -25,6 +25,7 @@ THIRD_PARTY_APPS = [
     'djoser',
     'drf_spectacular',
     'django_filters',
+    'debug_toolbar',
 ]
 
 LOCAL_APPS = [
@@ -54,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -141,3 +143,7 @@ SPECTACULAR_SETTINGS = {
     'COMPONENT_SPLIT_REQUEST': True,
     'COMPONENT_SPLIT_RESPONSE': True,
 }
+
+INTERNAL_IPS = [
+    '172.19.0.1',
+]
