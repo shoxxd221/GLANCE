@@ -15,17 +15,25 @@ class CartSerializer(ModelSerializer):
 
     class Meta:
         model = Cart
-        fields = ['id', 'goods', 'goods_id']
+        fields = ['id', 'goods', 'goods_id', 'quantity']
         read_only_fields = ['id', 'goods']
 
     def create(self, validated_data):
         """Создание корзины"""
         goods_id = validated_data.pop('goods_id')
+
         try:
             goods = Goods.objects.get(id=goods_id)
         except Goods.DoesNotExist:
             raise ValidationError(f'Товар с id {goods_id} не существует')
-        if goods.quantity <= 0:
-            raise ValidationError(f'Товара с id {goods_id} нет на складе')
-        cart = Cart.objects.create(user=self.context['request'].user, goods=goods)
+
+        if goods.quantity - validated_data['quantity']:
+            raise ValidationError(f'Осталось {goods.quantity} единиц товара на складе')
+
+        cart = Cart.objects.create(
+            user=self.context['request'].user,
+            goods=goods,
+            quantity=validated_data['quantity']
+        )
+
         return cart

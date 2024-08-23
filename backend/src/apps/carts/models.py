@@ -14,5 +14,7 @@ class Cart(models.Model):
     goods = models.ForeignKey(
         Goods,
         on_delete=models.CASCADE,
-        verbose_name='Товар, который пользователь добавил в корзину'
+        verbose_name=
+        'Товар, который пользователь добавил в корзину'
     )
+    quantity = models.PositiveSmallIntegerField()
