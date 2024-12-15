@@ -17,4 +17,6 @@ class Cart(models.Model):
         verbose_name=
         'Товар, который пользователь добавил в корзину'
     )
-    quantity = models.PositiveSmallIntegerField()
+    quantity = models.PositiveSmallIntegerField(
+        verbose_name='Количество товара в заказе'
+    )
