@@ -1,10 +1,12 @@
 from django.db import models
 
+from .constants import DEFAULT_MAX_LENGTH
+
 
 class Category(models.Model):
     """Модель категории"""
     name = models.CharField(
-        max_length=255,
+        max_length=DEFAULT_MAX_LENGTH,
         verbose_name='Название категории'
     )
 
@@ -15,7 +17,7 @@ class Category(models.Model):
 class Goods(models.Model):
     """Модель товара"""
     name = models.CharField(
-        max_length=255,
+        max_length=DEFAULT_MAX_LENGTH,
         verbose_name='Название товара'
     )
     price = models.PositiveSmallIntegerField(
