@@ -9,8 +9,15 @@ class Cart(models.Model):
     user = models.ForeignKey(
         get_user_model(),
         on_delete=models.CASCADE,
-        verbose_name='Пользователь, которому соответсвует товар в корзине'
+        verbose_name='Пользователь, которому соответсвует товар в корзине',
+        unique=True
     )
     goods = models.ManyToManyField(
-        Goods
+        Goods,
+        verbose_name='Товары в коризине'
     )
+
+    class Meta:
+        ordering = ['user']
+        verbose_name = 'Корзина'
+        verbose_name_plural = 'Корзины'
