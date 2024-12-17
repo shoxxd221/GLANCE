@@ -12,8 +12,14 @@ class User(AbstractUser):
     )
     phone_number = models.CharField(
         max_length=14,
-        verbose_name='Номер телефона'
+        verbose_name='Номер телефона',
+        unique=True
     )
+
+    class Meta:
+        ordering = ['full_name']
+        verbose_name = 'Пользователь'
+        verbose_name_plural = 'Пользователи'
 
     def __str__(self):
         return self.username
