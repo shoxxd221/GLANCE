@@ -15,18 +15,17 @@ class CartSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         """Создание корзины"""
-        goods_ids = validated_data.pop('goods')
-
+        goods = validated_data.pop('goods')
         cart = Cart.objects.create(
             user=self.context['request'].user,
         )
 
-        for goods_id in goods_ids:
+        for good in goods:
             try:
-                goods = Goods.objects.get(id=goods_id)
+                Goods.objects.get(id=good.pk)
             except Goods.DoesNotExist:
-                raise ValidationError(f'Товар с id {goods_id} не существует')
+                raise ValidationError(f'Товар с id {good.pk} не существует')
 
-            cart.goods.add(goods)
+            cart.goods.add(good.pk)
 
         return cart
