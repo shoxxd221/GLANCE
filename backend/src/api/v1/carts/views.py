@@ -15,7 +15,7 @@ class CartViewSet(
     GenericViewSet
 ):
     """Viewset для корзины пользователя"""
-    queryset = Cart.objects.prefetch_related('goods').all()
+    queryset = Cart.objects.all()
     serializer_class = CartSerializer
     permission_classes = (IsAuthenticated, )
     http_method_names = ('get', 'post', 'patch', 'delete')
