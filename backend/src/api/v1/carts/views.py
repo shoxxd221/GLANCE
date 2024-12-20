@@ -1,19 +1,12 @@
-from rest_framework.viewsets import GenericViewSet
-from rest_framework.mixins import DestroyModelMixin, ListModelMixin, CreateModelMixin, UpdateModelMixin
 from rest_framework.permissions import IsAuthenticated
 
+from api.v1.cached_viewset import CachedViewSet
 from apps.carts.models import Cart
 
 from api.v1.carts.serializers import CartSerializer
 
 
-class CartViewSet(
-    DestroyModelMixin,
-    ListModelMixin,
-    CreateModelMixin,
-    UpdateModelMixin,
-    GenericViewSet
-):
+class CartViewSet(CachedViewSet):
     """Viewset для корзины пользователя"""
     queryset = Cart.objects.all()
     serializer_class = CartSerializer
