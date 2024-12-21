@@ -1,7 +1,7 @@
 from django.test import TestCase
 
 from ..models import Category, Goods
-from ..constants import DEFAULT_MAX_LENGTH
+from apps.constants import DEFAULT_MAX_LENGTH
 from apps.utils import run_field_parameter_test, assert_model_field_value
 
 

@@ -1,6 +1,6 @@
 from django.db import models
 
-from .constants import DEFAULT_MAX_LENGTH
+from apps.constants import DEFAULT_MAX_LENGTH
 
 
 class Category(models.Model):
