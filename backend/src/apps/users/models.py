@@ -1,17 +1,19 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
+from apps.constants import DEFAULT_MAX_LENGTH, PHONE_NUMBER_LENGTH
+
 
 class User(AbstractUser):
     """Модель пользователя"""
     full_name = models.CharField(
-        max_length=255,
+        max_length=DEFAULT_MAX_LENGTH,
         verbose_name='ФИО',
         blank=True,
         null=True
     )
     phone_number = models.CharField(
-        max_length=14,
+        max_length=PHONE_NUMBER_LENGTH,
         verbose_name='Номер телефона',
         unique=True
     )

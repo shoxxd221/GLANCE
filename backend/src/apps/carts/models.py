@@ -21,3 +21,6 @@ class Cart(models.Model):
         ordering = ['user']
         verbose_name = 'Корзина'
         verbose_name_plural = 'Корзины'
+
+    def __str__(self):
+        return f'Корзина пользователя {self.user.name} с товарами {self.goods}'
