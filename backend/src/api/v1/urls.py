@@ -4,6 +4,7 @@ from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 urlpatterns = [
     path('', include('api.v1.goods.urls')),
     path('', include('api.v1.carts.urls')),
+    path('', include('api.v1.orders.urls')),
     path('auth/', include('djoser.urls')),
     re_path(r'^auth/', include('djoser.urls.authtoken')),
     path('schema/', SpectacularAPIView.as_view(), name='schema'),

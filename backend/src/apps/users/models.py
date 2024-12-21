@@ -14,8 +14,7 @@ class User(AbstractUser):
     )
     phone_number = models.CharField(
         max_length=PHONE_NUMBER_LENGTH,
-        verbose_name='Номер телефона',
-        unique=True
+        verbose_name='Номер телефона'
     )
 
     class Meta:

@@ -6,6 +6,7 @@ from apps.constants import DEFAULT_MAX_LENGTH
 
 
 class Order(models.Model):
+    """Модель заказов"""
     user = models.ForeignKey(
         to=get_user_model(),
         on_delete=models.CASCADE,
